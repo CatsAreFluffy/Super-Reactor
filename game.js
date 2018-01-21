@@ -21,7 +21,8 @@ function gameInit() {
 				try {
 					gameTick()
 				} catch (e) {
-					console.log('A game error has been occured: '+e)
+					console.log('A game error has occured')
+					console.error(e)
 				}
 				tickspeed=(new Date().getTime()-startTime)*0.2+tickspeed*0.8
 				updated=true
@@ -58,7 +59,8 @@ function save() {
 		localStorage.setItem('saveSR',btoa(JSON.stringify(player)))
 		console.log('Game saved!')
 	} catch (e) {
-		console.log('Well, we tried.')
+		console.log('Your game failed to save')
+		console.error(e)
 	}
 }
 
@@ -69,7 +71,8 @@ function load(savefile) {
 		updateCosts()
 		console.log('Game loaded!')
 	} catch (e) {
-		console.log('Your save failed to load: '+e)
+		console.log('Your save failed to load')
+		console.error(e)
 	}
 }
 
